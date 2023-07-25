@@ -3,13 +3,18 @@ const tasks = [];
 const dates = [];
 const times = [];
 
+// card that take the input for task , date and time
+
 const calendarBtn = document.getElementById('calendar-btn');
 const calendarPickerContainer = document.getElementById('calendar-picker-container');
 const calendarSaveBtn = document.getElementById('calendar-save-btn');
 
+// calendar input field and on click it will display and onclick it will hide
+
 calendarBtn.addEventListener('click', function () {
     calendarPickerContainer.classList.toggle('d-none');
 });
+
 
 calendarSaveBtn.addEventListener('click', function () {
     const selectedDate = document.getElementById('calendar-picker').value;
@@ -24,9 +29,13 @@ const notificationBtn = document.getElementById('notification-btn');
 const timePickerContainer = document.getElementById('time-picker-container');
 const saveBtn = document.getElementById('save-btn');
 
+// date and time input field and on click it will display and onclick it will hide
+
 notificationBtn.addEventListener('click', function () {
     timePickerContainer.classList.toggle('d-none');
 });
+
+// task input field and on enter any text it will display or else it is hidden
 
 saveBtn.addEventListener('click', function () {
     const selectedTime = document.getElementById('time-picker').value;
@@ -48,6 +57,8 @@ taskInput.addEventListener('input', function () {
     }
 });
 
+// after all this now adding all the inputs it will save to local db 
+
 addBtn.addEventListener('click', function () {
     const task = taskInput.value.trim();
     if (task !== '') {
@@ -60,11 +71,15 @@ addBtn.addEventListener('click', function () {
     }
 });
 
+// now doc object model starts
+
 document.addEventListener('DOMContentLoaded', function () {
     loadDataFromLocalStorage();
     checkDateTime();
     setInterval(checkDateTime, 1000);
 });
+
+// after adding it will create the new card
 
 function createCard(task, date, time) {
     const card = document.createElement('div');
@@ -109,17 +124,22 @@ function createCard(task, date, time) {
     deleteBtn.addEventListener('click', function () {
         cardContainer.removeChild(card);
         const index = tasks.findIndex((item) => item.task === task);
+
+        // The splice() method is used to remove elements from an array and optionally replace them with new elements.
+
         if (index !== -1) {
             tasks.splice(index, 1);
             dates.splice(index, 1);
             times.splice(index, 1);
         }
+         // Save the updated data to Local db
         saveDataToLocalStorage();
     });
 
+    // it should insert an element node as a child node within another element
+
     actionContainer.appendChild(importantIcon);
     actionContainer.appendChild(deleteBtn);
-
     cardBody.appendChild(taskTitle);
     cardBody.appendChild(dateText);
     cardBody.appendChild(timeText);
@@ -134,6 +154,9 @@ function saveDataToLocalStorage() {
     localStorage.setItem('selectedDates', JSON.stringify(dates));
     localStorage.setItem('selectedTimes', JSON.stringify(times));
 }
+
+// retrieving data from the Local DB, parsing the data,
+//  and using it to create and display cards for each task ..
 
 function loadDataFromLocalStorage() {
     const savedTasks = localStorage.getItem('tasks');
@@ -151,44 +174,52 @@ function loadDataFromLocalStorage() {
         }
     }
 }
+// Function to check tasks notifications if needed
 
 function checkDateTime() {
-    const currentDate = new Date();
-    const notificationTimeFrame = 1; // Specify the time frame in minutes
+    const currentDate = new Date(); // Get the current date and time
+    const notificationTimeFrame = 1; // Specific time frame in min
 
     let hasUnexpiredTasks = false;
+    // Variable to indicate if any tasks have not expired within the specified notification time frame.
 
+    // Loop through tasks in reverse order
     for (let i = tasks.length - 1; i >= 0; i--) {
+        // Extract the date and time of the current task
         const taskDate = new Date(tasks[i].date);
         const taskTime = tasks[i].time.split(':');
         const taskDateTime = new Date(
-            taskDate.getFullYear(),
-            taskDate.getMonth(),
-            taskDate.getDate(),
-            taskTime[0],
-            taskTime[1]
+            taskDate.getFullYear(), // year 
+            taskDate.getMonth(), //  month 
+            taskDate.getDate(), // day 
+            taskTime[0], // hrs
+            taskTime[1] // min
         );
 
+        // Check if the current date and time in specified notification time frame
         if (
-            currentDate.getTime() >= taskDateTime.getTime() &&
+            currentDate.getTime() >= taskDateTime.getTime() && // If this condition is true, the task is expired
             currentDate.getTime() <= taskDateTime.getTime() + notificationTimeFrame * 60 * 1000
+            // If this condition is true, the task should be notified
         ) {
-            // Task is due within the specified time frame
+            // Task is done within the specified time frame
             if (!tasks[i].notified) {
-                tasks[i].notified = true;
-                playNotificationSound();
+                // Check if the task has not been notified yet 
+                tasks[i].notified = true; // marking the task as notified
+                playNotificationSound(); // Trigger the notification sound for the task
             }
-            hasUnexpiredTasks = true;
+            hasUnexpiredTasks = true; // Set the flag to indicate there are unexpired tasks
         }
     }
 
-    // Check if all tasks have been completed
+    // Check if all tasks have been completed 
     if (!hasUnexpiredTasks) {
-        stopNotificationSound();
+        stopNotificationSound(); // Stop sound after completed
     }
 }
 
-let audio; // Variable to store the notification audio
+
+let audio; // var store notification audio
 async function playNotificationSound() {
     try {
         if (audio) {
@@ -203,6 +234,7 @@ async function playNotificationSound() {
     }
 }
 
+// to stop notification
 
 function stopNotificationSound() {
     if (audio) {
