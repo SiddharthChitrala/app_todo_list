@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>ToDo List</title>
+     <link rel="stylesheet" href="/assets/css/style.css">
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+     <section id="section1">
+
+          <nav class="navbar bg-transparent fixed-top">
+               <div class="container-fluid">
+                    <button class="navbar-toggler me-auto " type="button" data-bs-toggle="offcanvas"
+                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                         <span class="navbar-toggler-icon "></span>
+                    </button>
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                         aria-labelledby="offcanvasNavbarLabel">
+                         <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">TODO APP</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                   aria-label="Close"></button>
+                         </div>
+                         <div class="offcanvas-body">
+                              <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+
+                                   <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="index.html">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                  fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+                                                  <path
+                                                       d="M1.5 2.5A.5.5 0 0 1 2 2h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5zm0 4A.5.5 0 0 1 2 6h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5zm0 4A.5.5 0 0 1 2 10h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5zm0 4A.5.5 0 0 1 2 14h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z" />
+                                             </svg>
+                                             Task
+                                        </a>
+                                   </li>
+                                   <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                  fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                  <path
+                                                       d="M13 2h-1V1a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1H6V1a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 5h12v8H2V5zm10-3V2h-1v1h-2V2H5v1H4V2H3v1H2V2H1v11h14V2h-1z" />
+                                             </svg>
+                                             My Day
+                                        </a>
+                                   </li>
+                                   <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                  fill="currentColor" class="bi bi-exclamation-triangle"
+                                                  viewBox="0 0 16 16">
+                                                  <path
+                                                       d="M8.252 0.275a1.063 1.063 0 0 1 1.496 0l6.98 6.77A1.063 1.063 0 0 1 16 8.464v5.274c0 .587-.476 1.063-1.063 1.063H1.063C.476 15.8 0 15.324 0 14.737V8.463a1.062 1.062 0 0 1 .273-0.71l6.979-6.771ZM8 4.166c-.26 0-.474.177-.474.395v4.938c0 .219.214.396.474.396s.474-0.177.474-0.396V4.561c0-.218-.214-0.396-.474-0.396Zm-0.032 6.14c-.348 0-.63.24-.63.536 0 .295.282.535.63.535 0.349 0 0.63-0.24 0.63-0.535 0-0.296-0.281-0.536-0.63-0.536Z" />
+                                             </svg>
+                                             Important
+                                        </a>
+                                   </li>
+                                   <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                  fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                                  <path
+                                                       d="M7.5 1a6.5 6.5 0 0 0-6.496 6.499L1 8.5a.5.5 0 0 0 .5.5h1.645a.5.5 0 0 0 .415-.777L3.8 7.3A4.5 4.5 0 1 1 7.5 2a.5.5 0 0 0 0 1Zm0-1A7.5 7.5 0 1 0 15 7.5a.5.5 0 0 0-1 0A6.5 6.5 0 0 1 7.5 0Z" />
+                                                  <path
+                                                       d="M7.5 3a.5.5 0 0 0-.5.5v4.085l3.25 1.925a.5.5 0 0 0 .5-0.866L7.5 7.707V3.5A.5.5 0 0 0 7.5 3Z" />
+                                             </svg>
+                                             Planned
+                                        </a>
+                                   </li>
+
+                              </ul>
+
+                         </div>
+                    </div>
+               </div>
+          </nav>
+     </section>
+
+     <section id="section2">
+
+          <div class="container">
+               <!-- Page content -->
+               <p class="p">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" fill="currentColor"
+                         class="bi bi-house-door" viewBox="0 0 16 16">
+                         <path
+                              d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
+                    </svg>
+                    <span class="fs-4">Task</span>
+               </p>
+
+               <div class="card card1">
+                    <div class="card-body">
+                         <input type="text" id="task-input" class="form-control" placeholder="Enter your task">
+
+                         <button id="calendar-btn" class="btn mt-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                   class="bi bi-calendar2-event" viewBox="0 0 16 16">
+                                   <path
+                                        d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                                   <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                   <path
+                                        d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                              </svg>
+                         </button>
+
+                         <div id="calendar-picker-container" class="mt-2 d-none">
+                              <div class="input-group">
+                                   <input type="date" id="calendar-picker" class="form-control"
+                                        placeholder="Select date">
+                                   <button id="calendar-save-btn" class="btn btn-outline-primary"><svg
+                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+                                             <path
+                                                  d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                                        </svg></button>
+                              </div>
+                         </div>
+
+                         <button id="notification-btn" class="btn mt-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                   class="bi bi-bell" viewBox="0 0 16 16">
+                                   <path
+                                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                              </svg>
+                         </button>
+
+                         <div id="time-picker-container" class="mt-2 d-none">
+                              <div class="input-group">
+                                   <input type="time" id="time-picker" class="form-control" placeholder="Select time">
+                                   <button id="save-btn" class="btn btn-outline-primary"><svg
+                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+                                             <path
+                                                  d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                                        </svg></button>
+                              </div>
+                         </div>
+
+                         <button id="add-btn" class="btn mt-2" style="display: none;">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                   class="bi bi-patch-plus" viewBox="0 0 16 16">
+                                   <path fill-rule="evenodd"
+                                        d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z" />
+                                   <path
+                                        d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z" />
+                              </svg>
+                         </button>
+
+                    </div>
+               </div>
+
+
+          </div>
+
+          <div class="container mt-4">
+               <h5><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-list-nested" viewBox="0 0 16 16">
+                         <path fill-rule="evenodd"
+                              d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
+                    </svg> Saved Tasks</h5>
+               <div id="card-container" class="row">
+                    <!-- Cards will be dynamically added here -->
+               </div>
+          </div>
+     </section>
+     <script src="/assets/js/script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+          crossorigin="anonymous"></script>
+</body>
+
+</html>

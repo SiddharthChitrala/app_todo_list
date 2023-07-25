@@ -1,0 +1,37 @@
+#section2{
+     margin-top: 10vh;
+     padding:  1vh ;
+}
+.p {
+     display: flex;
+     align-items: center;
+}
+
+svg .bi {
+     margin-right: 5px;
+     /* Adjust the spacing between the icon and text */
+}
+
+.important {
+     background-color: #fd826f !important;
+     /* Change the background color to light red */
+}
+
+
+#calendar-picker-container , #time-picker-container{
+     width: 50vh;
+}
+
+.action-Container{
+     margin: 20px;
+}
+
+div .col-md-4{
+     padding: 0vh 3vh;
+     border-radius: 60px 60px 10px 10px;
+     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.card1{
+     background-color: rgb(238, 177, 136) !important;
+}
